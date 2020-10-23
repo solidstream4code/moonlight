@@ -1,0 +1,119 @@
+{% extends 'writeups/base.html' %}
+{% load static %}
+{% block title %}
+	<title> Moonlight: Reads </title>
+{% endblock %}
+
+{% block css %}
+	<link rel="stylesheet" href="{% static 'writeups/css/read.css' %}" />
+
+{% endblock %}
+
+{%block js%}
+	<script  src="{% static 'writeups/js/writeups.js' %}"></script>
+{%endblock%}
+
+{% block head_title %}
+
+{% endblock %}
+
+{% block mainBody %}
+					<div class="subnav col-xs-12 col-md-12 col-sm-12 col-lg-12">
+					<div class="genre-form">
+						<label> Genre </label>
+						<span class="btn btn-default toggle-drop-down"> {{genre}} <span class="caret"></span></span>
+						<ul class="select-genre">
+                            {% block select %}
+							{% endblock %}
+						</ul>
+					</div>
+				</div>
+
+				<div class="section-left col-xs-12 col-md-7 col-sm-7 col-lg-7">
+					<div class="left-cont">
+						{% for writeup in page_obj %}
+							<div class="each-writeup">
+								<div class="writeup-header">
+									<a href="{% url 'writeups:writeup' writeup.pk %}"> <div class="writeup_title"> {{writeup.title}}</div> </a>
+									<div class="auth-genre">
+										<a href="{% url 'writeups:dashboard' writeup.author.username %}"><span class="writeup_author"> {{writeup.author.username}} </span></a>
+										<span class="writeup_genre text-muted"> {{writeup.genre.name}} </span>
+										<span class="writeup_date text-muted"> {{writeup.time}} </span>
+									</div>
+								</div>
+									<div class="writeup-body">
+										{{ writeup.text | slice:"0:300" }} <a href="{% url 'writeups:writeup' writeup.pk %}"> View full weriteup </a>
+									</div>
+									<div class="content-reactions row">
+										<div class="col-xs-4 col-sm-2 col-md-2 col-lg-2">
+											<span class="fa fa-thumbs-o-up reaction-icon"> </span>
+											<span class="reaction-count">{{writeup.likes}}</span>
+										</div>
+										<div class="col-xs-4 col-sm-2 col-md-2 col-lg-2"">
+											<span class="fa fa-comment-o reaction-icon"> </span>
+											<span class="reaction-count">{{writeup.comments}}</span>
+										</div>
+										<div class="col-xs-4 col-sm-2 col-md-2 col-lg-2"">
+											<span class="fa fa-star-o reaction-icon"> </span>
+											<span class="reaction-count">{{writeup.favourites}}</span>
+										</div>
+									</div>
+							</div>
+						{% endfor %}
+
+					</div>
+
+					<div class="pages-control">
+						{% if page_obj.has_previous %}
+							<a href="?page={{page_obj.previous_page_number}}" class='btn btn-default btn-control'> Previous </a>
+						{% endif %}
+						{% if page_obj.has_next %}
+							<a href="?page={{page_obj.next_page_number}}" class='btn btn-default btn-control'> Next </a>
+						{% endif %}
+						{% if page_obj.has_other_pages %}
+							<span class='page-no btn-control'> Page {{page_obj.number}} of {{page_obj.paginator.num_pages}} </span>
+						{% endif %}
+					</div>
+				</div>
+					<div class="section-right col-xs-12 col-sm-5 col-md-5 col-lg-5">
+						<div class="right-cont">
+							<div class="others-section">
+								<div class="others-header"> YOUR FAVOURITES </div>
+									{% if user.is_authenticated %}
+										{% for favourite in favourites %}
+											<div class="other-body">
+												<div class="each-others">
+													<div class="each-title"> {{favourite.post.title}} </div>
+													<div class="auth-others">
+														<span class="writeup_author"> {{favourite.post.author.username}} </span>
+														<span class="writeup_genre text-muted"> {{favourite.post.genre.name}} </span>
+														<span class="writeup_date text-muted"> {{favourite.post.time}} </span>
+													</div>
+													<div class="writeup-body">
+														{{favourite.post.text | slice:"0:150"}}... <a href="{% url 'writeups:writeup' favourite.post.pk %}"> Read more </a>
+													</div>
+													<div class="content-reactions row">
+														<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+															<span class="fa fa-thumbs-o-up reaction-icon"> </span>
+															<span class="reaction-count">{{favourite.post.likes}}</span>
+														</div>
+														<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+															<span class="fa fa-comment-o reaction-icon"> </span>
+															<span class="reaction-count">{{favourite.post.comments}}</span>
+														</div>
+														<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+															<span class="fa fa-star-o reaction-icon"> </span>
+															<span class="reaction-count">{{favourite.post.favourites}}</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											{% endfor %}
+										{% else %}
+											<p> Login to view your favourite writeups </p>
+										{% endif %}
+							</div>
+						</div>
+					</div>
+{% endblock %}
+

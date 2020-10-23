@@ -1,0 +1,183 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title> Moonlight: Homepage</title>
+
+    <!-- CSS -->
+	
+	<link rel='stylesheet' href="{% static 'writeups/fonts/font-awesome.css' %}" />
+    <link rel="stylesheet" href="{% static 'writeups/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'writeups/css/bootstrap.css' %}" />
+    <link rel="stylesheet" href="{% static 'writeups/css/index.css' %}" />
+    
+
+    <!-- JS -->
+    <script src="{% static 'writeups/js/jquery.min.js' %}"> </script>
+	<script src="{% static 'writeups/js/bootstrap.js' %}"> </script>
+    <script src="{% static 'writeups/js/bootstrap.min.js' %}"> </script>
+  </head>
+  <body>
+    <div class="main-body container-fluid">
+      <div class="row">
+        <div class="body-head-section">
+			<div class="text-cont">
+				<div class="name"> Moonlight </div>
+				<div class="motto"> ... Experience African Literature from the viewport of young Africans </div>
+			</div>
+		</div>
+      </div>
+	  
+	  <div class="row">
+        <div class="welcome-section col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<div class="welcome-cont">
+				<div class="welcome-title"> Welcome </div>
+				<p class="welcome-note">
+					Welcome to Moonlight. A community of young African Litrary enthusiast. We are dedicated to supporting young aspiring authors across africa by
+					providing a platform where every member can express themeselves through their arts and get feedback from people who share similar goal and aspiration.
+					By so doing, enjoying themselves and honing their arts at the same time.
+				</p>
+			</div>
+		</div>
+      </div>
+	  
+	  <div class="row">
+        <div class="body-body-section col-xs-12 col-sm-5 col-md-5 col-lg-5">
+			<div class="poem-cont">
+				<div class="sect-title"> Here is a poem to welcome you </div>
+				<div class="poem-cont"> 
+					<div class="poem-title">The Downing Kite</div>
+					<div class="author"> SolidStreams </div>
+					<p class="poem">
+					We snak our young chests <br />
+					Into the forest sharps <br />
+					Seeking for the finest of sticks <br />
+					To propel our kite <br /><br />
+					
+					We crafted our kite <br />
+					Daring as witched ravens <br />
+					Camping in the clouds <br />
+					And hope it was christenened <br /> <br />
+					
+					Then we found the loudest of stars <br />
+					Packed them in palm packs <br />
+					And tied them to hopes back <br />
+					As a parcel for God <br /> <br />
+					
+					Accept our hopes dearest Lord <br />
+					Let us grow green branching skywards <br />
+					To heights where our Hopes cannot touched <br />
+					But Hope was punctured by hooded infidels <br /> <br />
+					
+					And we saw it downing <br />
+					Descending heavily <br />
+					Upon our worn cheeks <br />
+					We the black children <br /> <br />
+					
+					And we retired home wearing <br />
+					Our cheecks between our palms 
+				</p>
+				</div>
+				
+			</div>
+		</div>
+		
+		<div class="body-nav-section col-xs-12 col-sm-7 col-md-7 col-lg-7">
+			<div class="nav-cont">
+				<div class="each-nav">
+					<img src="{% static 'writeups/images/read.jpg' %}" width="170px" height="170px" class="img-circle" />
+					<div class="nav-test">
+						We have large collections of African Literature by member authors.
+					</div>
+					<a href="{% url 'writeups:read' 'all' 'recent' %}" class="nav-link btn btn-default"> Read </a>
+				</div>
+			</div>
+			
+			<div class="nav-cont">
+				<div class="each-nav">
+					<img src="{% static 'writeups/images/connect.jpg' %}" width="170px" height="170px" class="img-circle" />
+					<div class="nav-test">
+						Manage your profile and connect with other young authors with similar drive
+					</div>
+					<a href="{% url 'writeups:login' %}" class="nav-link btn btn-default"> Login </a>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	
+	<div class="row step-cont">
+		<div class="col-xs-12 col-md-12 col-sm-12 col-lg-12 step-text"> Get more from Moonlight through four easy steps </div>
+		<a href="{% url 'writeups:signup' %}"> <div class="col-xs-6 col-md-3 col-sm-3 col-lg-3 each-step">
+			<div class="no"> Step 1 </div>
+			<div class="fa-icon fa fa-users"></div>
+			<div class="text-act"> Create Account and Manage Profile </div>
+		</div></a>
+		
+		<a href="{% url 'writeups:read' 'all' 'recent'%}"><div class="col-xs-6 col-md-3 col-sm-3 col-lg-3 each-step">
+			<div class="no"> Step 2 </div>
+			<div class="fa-icon fa fa-book"></div>
+			<div class="text-act"> Read Works by Member Authors</div>
+		</div></a>
+		
+		<a href="{% url 'writeups:write' %}"><div class="col-xs-6 col-md-3 col-sm-3 col-lg-3 each-step">
+			<div class="no"> Step 3 </div>
+			<div class="fa-icon fa fa-pencil"></div>
+			<div class="text-act"> Submit Your writeup</div>
+		</div></a>
+		
+		<a href="{% url 'writeups:read' 'all' 'recent' %}"><div class="col-xs-6 col-md-3 col-sm-3 col-lg-3 each-step">
+			<div class="no"> Step 4 </div>
+			<div class=" fa-icon fa fa-exchange"></div>
+			<div class="text-act"> Send and Recieve Feedbacks </div>
+		</div></a>
+	</div>
+		
+		<div class="footer-section row">
+			<div class="quick-links col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<div>
+					<div class="footer-header"> Quicklinks </div>
+					<a href="{% url 'writeups:read' 'Poetry' 'recent' %}" class="quicklink"> Poetry </a>
+					<a href="{% url 'writeups:read' 'Short Story' 'recent' %}" class="quicklink"> Short Story </a>
+					<a href="{% url 'writeups:read' 'Essay' 'recent' %}" class="quicklink"> Essays </a>
+					<a href="{% url 'writeups:read' 'Folklore' 'recent' %}" class="quicklink"> Folklores </a>
+					<a href="{% url 'writeups:write' %}" class="quicklink"> Write </a>
+					<a href="{% url 'writeups:read' 'all' 'recent' %}" class="quicklink"> Read </a>
+					<a href="" class="quicklink"> Favourites </a>
+					<a href="{% url 'writeups:login' %}" class="quicklink"> Login </a>
+				</div>
+				
+				<div class="note">
+					<div class="footer-header"> Copyright </div>
+					<p> 
+						Authors retain exclusive rights to every work they submit on this site. We do not use works submitted 
+						on this platform for whatever purpose. We also do not request any right to works than the right to publish 
+						them on this platform.
+					</p>
+				</div>
+			</div>
+			
+			
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 contact">
+				<div class="contact-cont">
+					<div class="footer-header"> Contact Us </div>
+					<form class="" method="post" action="">
+						<input type="email" placeholder="Your Email" value="" /><br>
+						<input type="text" placeholder="Message Title"><br>
+						<textArea placeholder="Your message"></textarea><br>
+						<button type="submit" class="btn"> Send Mail </button>
+					</form>
+				</div>
+				
+			</div>
+			&copy  SolidStreams (Abubakar Abdulkadir). All rights reserved <span id="year"></span>
+				<script>
+					let date = new Date();
+					let year = date.getFullYear()
+					document.getElementById("year").innerHTML = year
+				</script>
+		</div>
+  </body>
+</html>

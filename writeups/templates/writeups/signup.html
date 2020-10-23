@@ -1,0 +1,43 @@
+{% extends 'writeups/base_registrations.html' %}
+{% load static %}
+{% block title %}
+    <title> Moonlight: Sign up </title>
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'writeups/css/signup.css' %}">
+{% endblock %}
+
+  {% block form %}
+<div class="form-cont-normal">
+    <form action="{% url 'writeups:signup' %}" method="post">
+            <div class="image-logo-cont">
+              <img src="{% static 'writeups/images/logo.png' %}" class="logo" alt="" />
+            </div>
+            <div class="form-header form-text-center"> Sign Up </div>
+
+            {% if forms.errors %}
+                <div class="alert alert-danger"> {{ forms.errors }} </div>
+            {% endif %}
+            {% if error %}
+                <div class="alert alert-danger"> {{ error }} </div>
+            {% endif %}
+
+            {% for field in forms %}
+                {% csrf_token %}
+                <div class="eachElement row">
+                    <div style="color: red; font-size:10pt"> {{field.errors}}</div>
+                    <span class='col-xs-12 col-sm-3 col-md-3 col-lg-3 label-cont' ><label class='form-label text-muted'> {{field.label_tag}} </label></span>
+                    <span class='col-xs-12 col-sm-9 col-md-9 col-lg-9 input-cont'>{{field}}</span>
+                </div>
+            {% endfor %}
+            <div class="eachElement row">
+                <span class='col-xs-12 col-sm-12 col-md-12 col-lg-12'><input type="submit" name="" class='login-submit' value="Signup"></span>
+            </div>
+            <p>Already have an account? <a href="{% url 'writeups:login' %}" class='signup-link'> Login </a> </p>
+ </form>
+</div>
+
+        </div>
+{% endblock %}
+

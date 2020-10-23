@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block title %}
+    {% endblock %}
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'writeups/css/bootstrap.min.css' %}">
+    {% block css %}
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'writeups/css/forms.css' %}">
+
+    <!-- JS -->
+    <link rel="stylesheet" href="{% static 'writeups/js/bootstrap.min.js' %}">
+    <link rel="stylesheet" href="{% static 'writeups/js/jquery.min.js' %}">
+  </head>
+  <body>
+    <div class="main-body container-fluid">
+      <div class="row">
+        <div class="col-xm-12 col-sm-6 col-md-6 col-lg-6 left-side">
+
+          {% block form %}
+          {% endblock %}
+
+        </div>
+        <div class="col-xm-12 col-sm-6 col-md-6 col-lg-6 right-side">
+          <div class="left-inner-container">
+            <div class="name-cont">
+              <div class="bold-name">
+                Moonlight
+              </div>
+              <div class="small-name">
+                Young Readers Club
+              </div>
+            </div>
+            <div class="categories-cont">
+              <div class="category-header">
+                Categories
+              </div>
+              <div class="cat-list-cont">
+                <ul>
+                    {% for genre in genres %}
+                        <li class='cat-list'><a href={% url 'writeups:login' %}> {{ genre }} </a></li>
+                    {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

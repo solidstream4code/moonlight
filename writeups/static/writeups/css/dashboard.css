@@ -1,0 +1,173 @@
+a{
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: none;
+}
+
+.content-header{
+  color: rgba(130, 130, 150, 0.8);
+  padding: 20px;
+  font-size: 16pt;
+  font-family: "Arial";
+  border-bottom: 1px solid rgba(230, 230, 230, 0.5)
+}
+
+.content-section{
+  margin-top: 15px;
+}
+
+.content-subsection{
+  border: 1px solid rgba(200, 200, 200, 0.7);
+  padding-top: 0px;
+  border-radius: 3px
+}
+
+.section-header{
+  background-color: rgba(250, 250, 250, 0.8);
+  padding: 10px;
+}
+
+.section-header{
+  color: rgb(120, 120, 120);
+  font-family: sans-serif;
+  font-weight: bolder;
+  font-size: 12pt;
+  border-bottom: 1px solid rgba(200, 200, 200, 0.5);
+}
+
+.header-no{
+  color: rgba(200, 100, 200, 0.8);
+  float: right;
+  border: 1px solid rgba(220, 220, 220, 0.5);
+  padding: 4px;
+  border-radius: 17px;
+  margin-top: -4px;
+  width: 32px;
+  text-align: center;
+}
+
+.each-content{
+  padding: 10px;
+  border-bottom: 1px solid rgba(220, 220, 220, 0.7)
+}
+
+.each-title{
+  font-size: 11pt;
+}
+
+.each-title a {
+  text-decoration: none;
+  color: rgba(0, 0, 150, 0.7);
+  font-weight: bold;
+}
+
+.date-submitted{
+  font-size: 9pt;
+  color: rgba(100, 100, 100, 0.5)
+}
+
+.writeup{
+  font-size: 10pt;
+  margin-top: 10px;
+  margin-bottom: 7px;
+  color: rgba(50, 50, 50, 0.9)
+}
+
+.reaction-icon{
+  color: rgba(0, 0, 150, 0.7);
+}
+
+.reaction-count{
+  font-size: 8pt;
+  color: rgba(100, 100, 100, 0.5)
+}
+
+.readall{
+  padding: 5px;
+  text-align: center;
+  background-color: rgb(50, 50, 150);
+  color: white;
+  cursor: pointer;
+}
+
+.readall:hover{
+  color: blue;
+  background-color: rgb(100, 100, 150);
+}
+
+.award-section{
+  background-color: rgba(70, 180, 70);
+  padding: 20px;
+  margin-top: 15px;
+  border-radius: 5px;
+}
+
+.award-header{
+  font-size: 16pt;
+  color: white;
+  text-align: center;
+}
+
+.award-container{
+  margin-top: 20px;
+  font-size: 12pt;
+}
+
+.readmore{
+  text-align: center;
+  margin-top: 30px;
+  color: white;
+  background-color: rgb(10, 100, 10);
+  float: right;
+  padding: 7px;
+  border-radius: 5px;
+  font-size: 10px;
+}
+
+.award-icon{
+  font-size: 11pt;
+}
+
+.award-subsection ol{
+  margin: 20px;
+  color: red;
+}
+.games-section{
+  background-color: rgba(70, 180, 70);
+  padding: 20px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-top: 15px;
+  border-radius: 5px;
+}
+
+.games-container{
+  padding: 0px;
+}
+
+.each-game{
+  margin-bottom: 10px;
+}
+
+.empty{
+	color: rgb(150, 40, 40);
+	padding: 15px;
+}
+
+.each-column, .content-section{
+	padding: 5px !important;
+}
+
+.inline-form{
+  display: inline-block;
+  margin-left: 15px;
+  font-size: 14px;
+  float: right;
+}
+
+.inline-form button{
+  border: none;
+  background-color:rgb(250, 250, 250)
+}

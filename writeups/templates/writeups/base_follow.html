@@ -1,0 +1,62 @@
+{% extends 'writeups/base.html' %}
+{% load static %}
+
+{% block css %}
+	 <link rel="stylesheet" type="text/css" href="{% static 'writeups/css/followings.css' %}"/>
+{% endblock %}
+
+{% block head_title %}
+
+{% endblock %}
+
+{% block mainBody %}
+
+{% if authors %}
+	{% for author in authors %}
+		<div class="body-body">
+			<div class="each-author col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<div class="col-xs-3 col-sm-3 col-md-2 col-lg-2 img-outer">
+					<div class="img-cont">
+						{% if author.bio.photo %}
+							<img src='{{author.bio.photo.url}}' class="fol-img img-circle" />
+						{% else %}
+							<img src='{% static 'writeups/images/default.jpg' %}' class="fol-img img-circle" />
+						{% endif %}
+					</div>
+				</div>
+				<div class="col-xs-9 col-sm-9 col-md-10 col-lg-10 follow-detail">
+					<a href="{% url 'writeups:dashboard' author.user.username %}"><div class='username'>{{author.user.username}}</div> </a>
+					<div class='firstname'> {{author.user.first_name}} </div>
+					<div class="lastname"> {{author.user.last_name}} </div>
+
+					<div class="followed-text"> {% block follow_text %} {% endblock %}</div>
+					<div class="followed-date"> {{author.time}}</div>
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+{% else %}
+	<div class='alert alert-info'>
+        {% block statement %}
+
+        {% endblock statement %}
+	</div>
+
+{% endif %}
+
+<div class="pages-control">
+	{% if page_obj.has_previous %}
+		<a href="?page={{page_obj.previous_page_number}}" class='btn btn-default btn-control'> Previous </a>
+	{% endif %}
+	{% if page_obj.has_next %}
+		<a href="?page={{page_obj.next_page_number}}" class='btn btn-default btn-control'> Next </a>
+	{% endif %}
+	{% if page_obj.has_other_pages %}
+		<span class='page-no btn-control'> Page {{page_obj.number}} of {{page_obj.paginator.num_pages}} </span>
+	{% endif %}
+</div>
+
+{% endblock %}
+
+
+

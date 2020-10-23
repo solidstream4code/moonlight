@@ -1,0 +1,23 @@
+{% extends 'writeups/base_follow.html' %}
+{% load static %}
+
+{% block title %}
+	<title>Moonlight: Followers</title>
+{% endblock %}
+
+{% block head_title %}
+	FOLLOWERS
+	<div class="right-side btn btn-default"> <a  href="{% url 'writeups:followings' requested_user %}"> View Followings </a></div>
+{% endblock %}
+
+{% block follow_text %}
+	started following you on
+{% endblock %}
+
+{% block statement %}
+	{% if user.is_authenticated and user.username == requested_user %}
+			No author is following you yet
+	{% else %}
+			 No author is following {{requested_user}} yet
+	{% endif %}
+{%endblock statement%}

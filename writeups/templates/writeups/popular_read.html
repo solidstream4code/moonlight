@@ -1,0 +1,16 @@
+{% extends 'writeups/base_read.html' %}
+{% load static %}
+
+{% block head_title %}
+	POPULAR WRITEUPS
+{% endblock %}
+
+{% block select %}
+	<a href="{% url 'writeups:popular' 'all' %}?page=1"> <li value="all"> All </li> </a>
+	<a href="{% url 'writeups:popular' 'Poetry'  %}?page=1"> <li value="Poetry"> Poetry </li> </a>
+	<a href="{% url 'writeups:popular' 'Short Story' %}?page=1"> <li value="Short Story"> Short Stories </li> </a>
+	<a href="{% url 'writeups:popular' 'Essay' %}?page=1"> <li value="Essay"> Essays </li> </a>
+	<a href="{% url 'writeups:popular' 'Folklore' %}?page=1"> <li value="Folklore"> Folklores </li> </a>
+
+{% endblock %}
+

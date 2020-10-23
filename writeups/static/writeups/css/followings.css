@@ -1,0 +1,67 @@
+a{
+	text-decoration: none;
+}
+
+a:hover{
+	text-decoration: none;
+}
+
+.each-author{
+	background-color: rgb(245, 245, 245);
+	padding: 5px;
+	border-radius: 5px
+}
+
+.img-cont{
+	width: 100%;
+	height: 110px;
+	padding: 0px;
+}
+
+.btn-control{
+	margin-right: 30px;
+	width: 100px;
+}
+
+.img-outer{
+	padding: 0px
+}
+
+.fol-img{
+	height: 100%;
+	width: 100%;
+}
+
+.username{
+	font-size: 12pt;
+	font-weight: bolder;
+}
+
+.firstname, .lastname{
+	display: inline-block;
+	color: rgb(150, 200, 150)
+}
+
+.lastname{
+	margin-left: 5px;
+}
+
+.followed-text{
+	font-size: 9pt;
+	margin-top: 10px;
+}
+
+.followed-date{
+	font-size: 9pt;
+	color: rgb(150, 150, 150)
+}
+
+.follow-detail{
+	padding: 10px;
+}
+
+.right-side{
+	position: absolute;
+	right: 5px;
+	margin-top: -7px;
+}
