@@ -1,0 +1,114 @@
+{% extends 'writeups/base.html'%}
+
+{% load static %}
+
+{% block title %}
+
+    <title> Moonlight: Write </title>
+
+{% endblock %}
+
+{%block css%}
+   <link rel="stylesheet" href="{% static 'writeups/css/writeup.css' %}" />
+{%endblock%}
+
+{% block head_title %} WRITEUP {% endblock %}
+
+{% block mainBody %}
+    	<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 writeup-section">
+					<div class="writeup-header">
+
+						<div class="writeup_title"> {{writeup.title}}</div>
+						<div class="auth-genre">
+							<a href="{% url 'writeups:dashboard' writeup.author.username %}"><span class="writeup_author"> {{writeup.author.username}} </span></a>
+							<span class="writeup_genre text-muted"> {{ writeup.genre }} </span>
+						</div>
+					</div>
+					<div class="writeup-body">
+						{{writeup.text | linebreaks}}
+					</div>
+					<div class='note-section'>
+						<span class="note text-muted"> {{writeup.note | linebreaks}} </span>
+						<div class="copywrite text-muted"> &copy {{ owner_user.first_name }} {{ owner_user.last_name }} <span class="date">27 Oct. 2020 7.43 am</span></div>
+					</div>
+					<div class="content-reactions row">
+						<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+							<span class="fa fa-thumbs-o-up reaction-icon"> </span>
+							<span class="reaction-count">{{likes.count}}</span>
+						</div>
+						<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+							<span class="fa fa-comment-o reaction-icon"> </span>
+							<span class="reaction-count">{{comments.count}}</span>
+						</div>
+						<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+							<span class="fa fa-star-o reaction-icon"> </span>
+							<span class="reaction-count">{{favourites.count}}</span>
+						</div>
+					</div>
+
+
+					<div class="comment-section">
+						{% if comments %}
+							{% for comment in comments %}
+								<div class="each-comment row">
+									<div class="img-section col-xs-2 col-sm-1 col-md-1 col-lg-1">
+											{% for bio in comment.poster.bio_set.all %}
+												<img src="{{ bio.photo.url }}" class="comment-img img-circle" />
+											{% endfor %}
+									</div>
+									<div class="comment-cont col-xs-8 col-sm-10 col-md-10 col-lg-10">
+										<a href="{% url 'writeups:dashboard' comment.poster.username %}"> <div class="comment-header"> {{comment.poster.username}} </div> </a>
+										<div class="comment-body">
+											{{comment.text | linebreaks}}
+										</div>
+										<div class="comment-time text-muted">{{comment.time}}</div>
+									</div>
+								</div>
+							{% endfor %}
+							<a href="" class="all-comments"> All Comments </a>
+						{% else %}
+						<p> This post has no comments yets. Be the first to comment </p>
+						{% endif %}
+					</div>
+
+
+					<div class="react">
+						<form method="post" class="react-form" action="{% url 'writeups:comment' writeup.pk %}">
+							{% csrf_token %}
+							<TextArea placeholder="comment" class="your_comment" name="text"> </textArea></br>
+							<button type="submit" class="btn btn-default"> Add Comment </button>
+							<a href="{% url 'writeups:like' writeup.id %}" class="btn btn-default"> <span class="fa fa-thumbs-o-up"> Like </span></a>
+							<a href="{% url 'writeups:favourite' writeup.id %}" class="btn btn-default"> <span class='fa fa-star'> Add to Favourite </span> </a>
+						</form>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 others-out-cont">
+					<div class="others-section">
+						<div class="others-header"> Other Writeups By this Author </div>
+
+						{% for writeup in other_writeups|slice:"0:4" %}
+						<div class="other-body">
+							<div class="each-others">
+								<a href="{% url 'writeups:writeup' writeup.id %}"> <div class="each-title"> {{ writeup.title }}</div></a>
+								<div class="each-genre text-muted"> {{writeup.genre}} </div>
+								<div class="content-reactions row">
+									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+										<span class="fa fa-thumbs-o-up reaction-icon"> </span>
+										<span class="reaction-count">{{writeup.likes}}</span>
+									</div>
+									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+										<span class="fa fa-comment-o reaction-icon"> </span>
+										<span class="reaction-count">{{writeup.comments}}</span>
+									</div>
+									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+										<span class="fa fa-star-o reaction-icon"> </span>
+										<span class="reaction-count">{{writeup.favourites}}</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						{% endfor %}
+						<a href="{% url 'writeups:author_read' writeup.author.username 'all' %}" class="view-all"> View all writeups by this Author </a>
+					</div>
+				</div>
+{% endblock %}
