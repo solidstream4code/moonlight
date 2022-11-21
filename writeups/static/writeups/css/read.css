@@ -1,0 +1,161 @@
+.subnav{
+	float: right;
+	margin-right: 15px;
+	margin-top: -45px;
+	text-align: right;
+}
+
+.subnav form{
+	display: inline-block;
+	margin-left: 30px;
+}
+
+.subnav form label{
+	font-weight: normal;
+	padding-right: 10px;
+}
+
+.subnav form select{
+	padding: 10px;
+}
+
+.each-writeup{
+	margin-bottom: 40px;
+}
+
+.writeup-header{
+	margin-bottom: 20px;
+}
+
+.writeup_title{
+	font-size: 20pt;
+	color: rgb(100, 100, 200);
+	font-family: times;
+}
+
+.writeup_author{
+	color: brown;
+	font-weight: bolder;
+	margin-right: 50px;
+}
+
+.writeup-body{
+	line-height: 1.5;
+	text-align: justify;
+	margin-bottom: 20px;
+	color: rgb(100, 100, 100)
+}
+
+.left-cont{
+	padding: 15px;
+}
+
+.writeup_date{
+	margin-left: 50px;
+	font-size: 9pt;
+	z-index: -1;
+}
+
+.section-right{
+	padding-left: 70px;
+}
+
+.others-header{
+	font-size: 14pt;
+	margin-bottom: 20px;
+	padding: 15px;
+}
+
+.each-others{
+	margin-bottom: 20px;
+	border-bottom: 1px solid rgb(240, 240, 240);
+	padding: 15px;
+	padding-top: 0px;
+}
+
+.each-title{
+	font-size: 16pt;
+	color: rgb(100, 100, 200);
+}
+
+.auth-others{
+	margin-bottom: 15px;
+}
+
+.btn-control{
+	margin-right: 30px;
+	width: 100px;
+}
+.genre-form{
+	position: absolute;
+	right: 0px;
+	z-index: 1000
+}
+
+.toggle-drop-down{
+	width: 120px;
+	text-align: left;
+}
+
+.caret{
+	float: right;
+	margin-top: 10px;
+}
+
+.select-genre{
+	background-color: black;
+	padding: 0px;
+	z-index: 1 !important;
+	width: 200px
+}
+
+.select-genre li{
+	list-style: none;
+	border-bottom: 1px solid rgb(50, 50, 50);
+	padding: 10px;
+	text-align: left;
+}
+
+.select-genre a{
+	color: rgb(150, 150, 150);
+	z-index: 1000;
+}
+
+@media(max-width: 760px){
+	.subnav{
+		margin-right: 0px;
+		margin-top: -40px;	
+	}
+
+
+	.subnav form{
+		margin-left: 10px;
+	}
+	
+	.subnav form select{
+		padding: 3px;
+		width: 50%;
+	}
+	
+	.subnav form label{
+		font-weight: normal;
+		padding-right: 0px;
+	}
+	
+	.left-cont{
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+	
+	.writeup_title{
+		font-size: 18pt;
+	}	
+
+	.writeup_date{
+		float: right;
+	}
+	
+	.section-right{
+		padding-left: 0px;
+	}
+}
